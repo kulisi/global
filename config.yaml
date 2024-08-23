@@ -1,0 +1,19 @@
+#
+gin:
+  use: false
+  addr:
+zap:
+  use: false
+  level:
+  prefix:
+  format:
+  director:
+  encode-level:
+  stacktrace-key:
+  show-line:
+  log-in-console:
+  retention-day:
+gorm:
+  use:
+  mssql:
+  mysql:
