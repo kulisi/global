@@ -44,13 +44,14 @@ func NewGlobalByConfig(config *config.Config) *Global {
 
 	// 创建数据库实例
 	var db *gorm.DB
-	switch strings.ToUpper(config.Gorm.Use) {
+	switch strings.ToLower(config.Gorm.Use) {
 	case "mssql":
 		db = internal.Mssql(config.Gorm.Mssql)
 	case "mysql":
 		db = internal.Mysql(config.Gorm.Mysql)
+	default:
+		log.Println("config gorm.use not support")
 	}
-
 	return &Global{
 		v:    v,
 		conf: config,

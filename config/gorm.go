@@ -1,7 +1,7 @@
 package config
 
 type Gorm struct {
-	Use   string `mapstructure:"Use" json:"Use" yaml:"Use"`
+	Use   string `mapstructure:"use" json:"use" yaml:"use"`
 	Mssql Mssql  `json:"mssql" mapstructure:"mssql" yaml:"mssql"`
 	Mysql Mysql  `json:"mysql" mapstructure:"mysql" yaml:"mysql"`
 }
