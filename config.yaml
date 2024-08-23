@@ -14,6 +14,6 @@ zap:
   log-in-console:
   retention-day:
 gorm:
-  use:
+  use: mssql
   mssql:
   mysql:
