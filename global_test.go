@@ -1,12 +1,17 @@
 package global
 
 import (
-	"fmt"
 	"testing"
 )
 
 func TestGlobal(t *testing.T) {
-	conf := DefaultConfig(AddPath("./"))
+	conf := DefaultConfig(AddPath("./"), ConfigName("config_debug"))
 	Setup(conf)
-	fmt.Println(GetConfigString())
+	Debug("debug")
+	Info("info")
+	Warn("warn")
+	Error("error")
+	DPanic("dPanic")
+	Panic("panic")
+	Fatal("fatal")
 }

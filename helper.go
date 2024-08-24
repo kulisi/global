@@ -2,9 +2,11 @@ package global
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/kulisi/global/config"
 	"go.uber.org/zap"
 	"gorm.io/gorm"
+	"log"
 	"sync"
 )
 
@@ -23,6 +25,8 @@ func Setup(config *config.Config) {
 func Debug(msg string, fields ...zap.Field) {
 	if g.conf.Zap.Use {
 		g.log.Debug(msg, fields...)
+	} else {
+		log.Println(fmt.Sprintf("\x1b[0;%dm%s\x1b[0m %s", 37, "DEBUG", msg))
 	}
 }
 
@@ -30,6 +34,8 @@ func Debug(msg string, fields ...zap.Field) {
 func Info(msg string, fields ...zap.Field) {
 	if g.conf.Zap.Use {
 		g.log.Info(msg, fields...)
+	} else {
+		log.Println(fmt.Sprintf("\x1b[0;%dm%s\x1b[0m %s", 32, "INFO", msg))
 	}
 }
 
@@ -37,6 +43,8 @@ func Info(msg string, fields ...zap.Field) {
 func Warn(msg string, fields ...zap.Field) {
 	if g.conf.Zap.Use {
 		g.log.Warn(msg, fields...)
+	} else {
+		log.Println(fmt.Sprintf("\x1b[0;%dm%s\x1b[0m %s", 33, "WARN", msg))
 	}
 }
 
@@ -44,6 +52,8 @@ func Warn(msg string, fields ...zap.Field) {
 func Error(msg string, fields ...zap.Field) {
 	if g.conf.Zap.Use {
 		g.log.Error(msg, fields...)
+	} else {
+		log.Println(fmt.Sprintf("\x1b[0;%dm%s\x1b[0m %s", 31, "ERROR", msg))
 	}
 }
 
@@ -51,6 +61,8 @@ func Error(msg string, fields ...zap.Field) {
 func DPanic(msg string, fields ...zap.Field) {
 	if g.conf.Zap.Use {
 		g.log.DPanic(msg, fields...)
+	} else {
+		log.Println(fmt.Sprintf("\x1b[0;%dm%s\x1b[0m %s", 34, "DPANIC", msg))
 	}
 }
 
@@ -58,6 +70,8 @@ func DPanic(msg string, fields ...zap.Field) {
 func Panic(msg string, fields ...zap.Field) {
 	if g.conf.Zap.Use {
 		g.log.Panic(msg, fields...)
+	} else {
+		log.Println(fmt.Sprintf("\x1b[0;%dm%s\x1b[0m %s", 36, "PANIC", msg))
 	}
 }
 
@@ -65,6 +79,8 @@ func Panic(msg string, fields ...zap.Field) {
 func Fatal(msg string, fields ...zap.Field) {
 	if g.conf.Zap.Use {
 		g.log.Fatal(msg, fields...)
+	} else {
+		log.Println(fmt.Sprintf("\x1b[0;%dm%s\x1b[0m %s", 35, "FATAL", msg))
 	}
 }
 
